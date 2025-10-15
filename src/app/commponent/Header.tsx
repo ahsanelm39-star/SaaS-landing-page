@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Logo from '../../../public/images/logosaas.png'
 import List from '../../../public/images/menu.svg'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 export default function Header () {
 
@@ -18,7 +19,8 @@ export default function Header () {
         
     }
 
-        window.addEventListener('click',(e)=>{
+        useEffect(()=>{
+            window.addEventListener('click',(e)=>{
             if(e.target !== document.querySelector('ul') && e.target !== document.querySelector('.list')){
                 const linkes = document.querySelector('ul')
                 const linkesLi = document.querySelectorAll('ul li')
@@ -36,6 +38,7 @@ export default function Header () {
                 header.classList.remove('show-shadow')
             }
         })
+        },[])
 
 
 
